@@ -3,7 +3,7 @@
  * Plugin Name: Ptengine - Real time web analytics and Heatmap
  * Version: 1.0.0
  * Plugin URI: http://www.ptengine.com/
- * Description: To get started: go to <a href="/wp-admin/admin.php?page=ptengine_setting">option page</a> and (1) sign up (2) create a profile (3) start to see your real time traffic! Go to Ptengine for the full version if you want more conversions.
+ * Description: To get started: activate this plugin, go to <a href="admin.php?page=ptengine_setting">option page</a> and (1) sign up (2) create a profile (3) start to see your real time traffic! Go to Ptengine for the full version if you want more conversions.
  * Author: Ptengine
  * Author URI: http://www.ptengine.com/
  */
