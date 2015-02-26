@@ -27,14 +27,21 @@ In addition, Ptengine plugin allows you to filtrate the results using funnels an
  
 = 説明 =
 
-PtengineはPC、スマホやタブレット等、様々なデバイスからのサイトアクセスを解析できるアナリティクスツールです。「Ptengineプラグイン」は、あなたのサイト上での
-ユーザーの動きを見える化してよりサイトを改善するための機能を豊富に揃えています。このプラグインを使えば次のようなことが簡単に分析できるようになります。
+PtengineはPC、スマホやタブレット等、様々なデバイスからのサイトアクセスを解析できる
+アナリティクスツールです。「Ptengineプラグイン」は、あなたのサイト上での
+ユーザーの動きを見える化
+してよりサイトを改善するための機能を豊富に揃えています。このプラグインを使えば次のようなことが
+簡単に分析できるようになります。
 例えば次のようなことが知りたいあなたには最適です。
 ・売上を上げたいのにサイトの基本的な数値やパフォーマンスが今までわかりづらかった
+
 ・デザインを変えて直帰率を下げたいのでユーザーのページ上での動きを知りたい
+
 ・もっとサイトの読者を増やしたいので、ユーザーの興味がわかるような分析がしたい
-Ptengineは圧倒的に使いやすさと、ユーザーを見える化するヒートマップを合わせもつ世界15000サイト以上が使うデータ解析サービスです。あなたのサイトにも簡単に導入
-できるので次のステップにしたがってぜひデータ分析してみましょう！
+Ptengineは圧倒的に使いやすさと、ユーザーを見える化するヒートマップを合わせもつ世界15000サイト以上が
+使うデータ解析サービスです。あなたのサイトにも簡単に導入
+できるので次のステップにしたがって
+ぜひデータ分析してみましょう！
 
 
  
@@ -62,23 +69,24 @@ Ptengineは圧倒的に使いやすさと、ユーザーを見える化するヒ
 
  == Frequently Asked Questions ==
 
-**Do I need an account for using Ptengine?
-Yes. And the registration process is very simple and you can finish it at your website. After you successfully install the Plugin, please follow the instructions in Ptengine Settings to create an account.
- 
-**How to create a profile?
-To start tracking your website, you need to set up a profile in Ptengine. Please go to Ptengine Settings and follow the instructions. If you already have a profile, you can add it to your account.
- 
-**How to see more functions of Ptengine, like HeatMap?
-To use other features of Ptengine, please go to Ptengine's official website www.ptengine.com. There you can find more detailed information and use more advanced features. The account is the same as the one you use on your wordpress site.
- 
-**What should I do if the code implementation failed?
-If the auto-implementation is failed when you are creating a profile, please follow the steps on Ptengine Settings to implement the code manually on your website.
- 
-**How do I stop Ptengine from tracking my website?
-If you don't want Ptengine to track your website stats, please go to the Plugin section in WordPress and disable Ptengine. If you don't want to use Ptengine anymore, you can delete the plugin in the plugin section. 
- 
-**How to restart Ptengine Plugin once I have disabled it?
-If Ptengine is still installed but disabled: go to the Plugin section in WordPress to enable Ptengine. However, if you have deleted Ptengine, you'll need to re-install the plugin.
+ Q.Do I need an account for using Ptengine?
+
+ Yes. And the registration process is very simple and you can finish it at your website. After you successfully install the Plugin, please follow the instructions in Ptengine Settings to create an account.
+ Q.How to create a profile?
+
+ To start tracking your website, you need to set up a profile in Ptengine. Please go to Ptengine Settings and follow the instructions. If you already have a profile, you can add it to your account.
+ Q.How to see more functions of Ptengine, like HeatMap?
+
+ To use other features of Ptengine, please go to Ptengine's official website www.ptengine.com. There you can find more detailed information and use more advanced features. The account is the same as the one you use on your wordpress site.
+ Q.What should I do if the code implementation failed?
+
+ If the auto-implementation is failed when you are creating a profile, please follow the steps on Ptengine Settings to implement the code manually on your website.
+ Q.How do I stop Ptengine from tracking my website?
+
+ If you don't want Ptengine to track your website stats, please go to the Plugin section in WordPress and disable Ptengine. If you don't want to use Ptengine anymore, you can delete the plugin in the plugin section.
+ Q.How to restart Ptengine Plugin once I have disabled it?
+
+ If Ptengine is still installed but disabled: go to the Plugin section in WordPress to enable Ptengine. However, if you have deleted Ptengine, you'll need to re-install the plugin.
 
 
  
