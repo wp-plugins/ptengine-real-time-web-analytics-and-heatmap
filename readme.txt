@@ -55,6 +55,7 @@ Q.How to create a profile?
 To start tracking your website, you need to set up a profile in Ptengine. Please go to Ptengine Settings and follow the instructions. If you already have a profile, you can add it to your account.
  
 Q. How to use advanced features of Ptengine, like heat map?
+
 Simply click 'Go to Ptengine' button on the top/bottom right corners in the plugin interface, you'll go to Ptengine official product version at report.ptengine.com. Learn more about the features, visit www.ptengine.com
 
 
