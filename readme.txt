@@ -7,7 +7,7 @@ Tested up to: 1.0.0
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Ptengine is a user-friendly web analytics and heatmap platform. Raise ROI and increase conversions with no analytics expertise required.
+Ptengine is a user-friendly web analytics and heatmap platform. Raise ROI and increase conversions with $0 cost and no analytics expertise required.
 
 
 == Description ==
@@ -18,19 +18,17 @@ You can also find out where visitors are coming from and what contents attract t
 In addition, Ptengine plugin allows you to filtrate the results using funnels and export CSV reports to save and share the results.
 
 = 説明 =
-PtengineはPC、スマホやタブレット等、様々なデバイスからのサイトアクセスを解析できるアナリティクスツールです。「Ptengineプラグイン」は、あなたのサイト上での
-ユーザーの動きを見える化してよりサイトを改善するための機能を豊富に揃えています。このプラグインを使えば次のようなことが簡単に分析できるようになります。
+PtengineはPC、スマホやタブレット等、様々なデバイスからのサイトアクセスを解析できるアナリティクスツールです。「Ptengineプラグイン」は、あなたのサイト上での ユーザーの動きを見える化して、より良いサイトに改善するための機能を豊富に備えています。このプラグインを使えば、サイト改善に必要な様々な分析が簡単にできるようになります。
 
-例えば次のようなことが知りたいあなたには最適です。
+例えば、次のようなことが知りたいあなたには最適です。
 
-・売上を上げたいのにサイトの基本的な数値やパフォーマンスが今までわかりづらかった
+・売上を上げたいのに、サイトの基本的な指標やパフォーマンスが今までわかりづらかった。
 
-・デザインを変えて直帰率を下げたいのでユーザーのページ上での動きを知りたい
+・デザインを変えて直帰率を下げたいので、ユーザーのページ上での動きを知りたい。
 
-・もっとサイトの読者を増やしたいので、ユーザーの興味がわかるような分析がしたい
+・もっとサイトの読者を増やしたいので、ユーザーの興味がわかるような分析がしたい。
 
-Ptengineは圧倒的に使いやすさと、ユーザーを見える化するヒートマップを合わせもつ世界15000サイト以上が使うデータ解析サービスです。あなたのサイトにも簡単に導入できるので次のステップにしたがってぜひデータ分析してみましょう！
-
+Ptengineは圧倒的な使いやすさと、ユーザーを見える化するヒートマップを併せ持つ、世界15,000サイト以上で使われているデータ解析サービスです。あなたのサイトにも簡単に導入できるので、ぜひ快適なデータ分析を体験してみてください！
 
 == Installation ==
 1. Download Ptengine.zip and upload the Ptengine folder to the /wp-content/plugins directory.
@@ -56,10 +54,10 @@ Q.How to create a profile?
 
 To start tracking your website, you need to set up a profile in Ptengine. Please go to Ptengine Settings and follow the instructions. If you already have a profile, you can add it to your account.
  
-Q.How to see more functions of Ptengine, like HeatMap?
+Q. How to use advanced features of Ptengine, like heat map?
+Simply click 'Go to Ptengine' button on the top/bottom right corners in the plugin interface, you'll go to Ptengine official product version at report.ptengine.com. Learn more about the features, visit www.ptengine.com
 
-To use other features of Ptengine, please go to Ptengine's official website www.ptengine.com. There you can find more detailed information and use more advanced features. The account is the same as the one you use on your wordpress site.
- 
+
 Q.What should I do if the code implementation failed?
 
 If the auto-implementation is failed when you are creating a profile, please follow the steps on Ptengine Settings to implement the code manually on your website.
