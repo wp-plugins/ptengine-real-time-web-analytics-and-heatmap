@@ -1,4 +1,4 @@
-﻿=== Ptengine - Real time web analytics and Heatmap ===
+﻿=== Ptengine: The Most Intuitive Heatmap and Visitor Dashboard, for Instant Conversion Insights ===
 Contributors: 
 Ptengine
 Tags: plugin, web analytics, heatmap, widget, realtime, tracking, page group, funnel, conversion
@@ -7,15 +7,22 @@ Tested up to: 1.0.0
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Ptengine is a user-friendly web analytics and heatmap platform. Raise ROI and increase conversions with $0 cost and no analytics expertise required.
+Ptengine's heat mapping technology and traffic metrics show you exactly where every visitor is clicking, scrolling and buying. Or not buying. 
+
+One small website tweak can triple your sales. Find out what to fix. For free.
 
 
 == Description ==
 
-Ptengine provides you with detailed information about where you gain or lose visitors via various advanced analysis methods such as Page Group, Conversion and Funnels. 
-Here you can see the current events stats on your website, visitors' information like locations and much more to help you optimize the contents of your websites.
-You can also find out where visitors are coming from and what contents attract them the most, this may help you fine tune your advertising campaign strategy.
-In addition, Ptengine plugin allows you to filtrate the results using funnels and export CSV reports to save and share the results.
+Ptengine's heat maps and traffic analytics allow you to peer over the shoulders of every visitor.
+
+With funnel views and reporting options, you’ll get the superpowers to see:
+
+- Where exactly are my visitors clicking?
+- Where are they losing interest and exiting the page?
+- What content and products do they love (and want more of)?
+
+Find out what changes you can make today to keep your visitors clicking more, scrolling more and ultimately buying more. Download it now. 
 
 = 説明 =
 PtengineはPC、スマホやタブレット等、様々なデバイスからのサイトアクセスを解析できるアナリティクスツールです。「Ptengineプラグイン」は、あなたのサイト上での ユーザーの動きを見える化して、より良いサイトに改善するための機能を豊富に備えています。このプラグインを使えば、サイト改善に必要な様々な分析が簡単にできるようになります。
@@ -46,30 +53,27 @@ Ptengineは圧倒的な使いやすさと、ユーザーを見える化するヒ
 
 == Frequently Asked Questions ==
 
-Q.Do I need an account for using Ptengine?
+1. Do I need an account to use Ptengine?
 
-Yes. And the registration process is very simple and you can finish it at your website. After you successfully install the Plugin, please follow the instructions in Ptengine Settings to create an account.
- 
-Q.How to create a profile?
+Yes. It takes about 60 seconds to set up an account and start tracking your traffic. After you install the plugin in Wordpress, click on Ptengine in the sidebar. Our setup wizard whisks you through the 2 easy steps. If you have a pre-existing profile with Ptengine, you can simply add it to your account.
 
-To start tracking your website, you need to set up a profile in Ptengine. Please go to Ptengine Settings and follow the instructions. If you already have a profile, you can add it to your account.
- 
-Q. How to use advanced features of Ptengine, like heat map?
+2. How do I used advanced features, like heat maps?
 
-Simply click 'Go to Ptengine' button on the top/bottom right corners in the plugin interface, you'll go to Ptengine official product version at report.ptengine.com. Learn more about the features, visit www.ptengine.com
+Simply click on the "Go to Ptengine" button on the top or bottom right corner of the Ptengine plugin page. Our advanced features tell you exactly where every visitor is clicking and scrolling. Get the power to peer over their shoulders.
 
+3. What do I do if the plugin could not insert the tracking code automatically?
 
-Q.What should I do if the code implementation failed?
+On your Wordpress admin sidebar, click on Ptengine > Settings. It will show you (step by step) how to manually add the tracking code to your site.
 
-If the auto-implementation is failed when you are creating a profile, please follow the steps on Ptengine Settings to implement the code manually on your website.
- 
-Q.How do I stop Ptengine from tracking my website?
+4. How do I stop Ptengine from tracking my website?
 
-If you don't want Ptengine to track your website stats, please go to the Plugin section in WordPress and disable Ptengine. If you don't want to use Ptengine anymore, you can delete the plugin in the plugin section.
- 
-Q.How to restart Ptengine Plugin once I have disabled it?
+If you no longer want Ptengine to keep tracking your traffic, simply go to the Plugins page in Wordpress. Scroll to Ptengine. There, either disable or delete the plugin.
 
-If Ptengine is still installed but disabled: go to the Plugin section in WordPress to enable Ptengine. However, if you have deleted Ptengine, you'll need to re-install the plugin.
+5. How can I start using Ptengine again if I have disabled it?
+
+If Ptengine is installed but disabled: Go to Plugins in your Wordpress, find Ptengine and click “enable”.
+
+If Ptengine has been deleted: download the plugin again from this page and reinstall it in Wordpress.
 
 
 = お問い合わせ内容 =
