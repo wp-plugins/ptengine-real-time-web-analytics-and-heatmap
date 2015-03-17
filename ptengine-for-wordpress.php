@@ -61,7 +61,7 @@ if ($sid && $site_id && $pgid && $site_name && $timezone && $code) {
     update_option('key_ptengine_pgid', $pgid);
     update_option('key_ptengine_site_name', $site_name);
     update_option('key_ptengine_timezone', $timezone);
-    update_option('key_ptengine_code', $code);
+    update_option('key_ptengine_code', str_replace(' ','+',$code));
 }
 /*******************param process end**********************************/
 
@@ -108,7 +108,7 @@ if(get_option('key_ptengine_sid')){
     // add ptengine tag
     function add_ptengine_tag() {
         $t_code = get_option('key_ptengine_code');
-        echo $t_code ? base64_decode($t_code) : '';
+        echo $t_code ? base64_decode(str_replace(' ','+',$t_code)) : '';
     }
 }
 /*******************add tag process end**********************************/
