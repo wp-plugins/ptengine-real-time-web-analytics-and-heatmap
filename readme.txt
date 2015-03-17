@@ -1,4 +1,4 @@
-﻿=== Ptengine: The Most Intuitive Heatmap and Visitor Dashboard, for Instant Conversion Insights ===
+﻿=== Ptengine - Real time web analytics and Heatmap ===
 Contributors: 
 Ptengine
 Tags: plugin, web analytics, heatmap, widget, realtime, tracking, page group, funnel, conversion
