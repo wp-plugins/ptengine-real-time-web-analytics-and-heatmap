@@ -9,7 +9,6 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Ptengine's heat mapping technology and traffic metrics show you exactly where every visitor is clicking, scrolling and buying. Or not buying. 
 
-One small website tweak can triple your sales. Find out what to fix. For free.
 
 
 == Description ==
