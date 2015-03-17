@@ -2,7 +2,7 @@
 Contributors: 
 Ptengine
 Tags: plugin, web analytics, heatmap, widget, realtime, tracking, page group, funnel, conversion
-Requires at least: 1.0.1
+Requires at least: 3.8
 Tested up to: 4.1.1
 Stable tag: 1.0.1
 License: GPLv2 or later
@@ -113,8 +113,12 @@ WordPress管理画面「プラグイン」より、Ptengineを「有効」にし
 
 
 == Changelog ==
-=1.0.0=
-*First version.
+= 1.0.1 =
+* Fixed an issue that prevented the plugin from installing the tracking code.
 
-=1.0.1=
-*Fixed an issue that prevented the plugin from installing the tracking code.
+= 1.0.0 =
+* First version.
+
+== Upgrade Notice ==
+= 1.0.0 =
+* Initial release
