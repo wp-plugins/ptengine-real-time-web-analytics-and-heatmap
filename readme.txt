@@ -113,7 +113,8 @@ WordPress管理画面「プラグイン」より、Ptengineを「有効」にし
 
 
 == Changelog ==
-1.0.0
+==1.0.0==
 First version.
-1.0.1
+
+==1.0.1==
 Fixed an issue that prevented the plugin from installing the tracking code.
