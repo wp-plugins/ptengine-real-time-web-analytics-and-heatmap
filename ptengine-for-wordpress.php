@@ -54,14 +54,12 @@ $site_id = $_GET['siteId'];
 $pgid = $_GET['groupId'];
 $site_name = $_GET['siteName'];
 $timezone = $_GET['timezone'];
-$code = $_GET['code'];
-if ($sid && $site_id && $pgid && $site_name && $timezone && $code) {
+if ($sid && $site_id && $pgid && $site_name && $timezone) {
     update_option('key_ptengine_sid', $sid);
     update_option('key_ptengine_site_id', $site_id);
     update_option('key_ptengine_pgid', $pgid);
     update_option('key_ptengine_site_name', $site_name);
     update_option('key_ptengine_timezone', $timezone);
-    update_option('key_ptengine_code', str_replace(' ','+',$code));
 }
 /*******************param process end**********************************/
 
@@ -107,8 +105,23 @@ if(get_option('key_ptengine_sid')){
     }
     // add ptengine tag
     function add_ptengine_tag() {
-        $t_code = get_option('key_ptengine_code');
-        echo $t_code ? base64_decode(str_replace(' ','+',$t_code)) : '';
+        $t_site_id = get_option('key_ptengine_site_id');
+		if(!ereg("^[a-zA-Z0-9]{8}$", $t_site_id)){$t_site_id = '';}
+?>
+    <script type="text/javascript">
+    window._pt_sp_2 = [];
+	_pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
+	var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	(function() {
+		var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+		atag.src = _protocol + 'js.ptengine.com/pta.js';
+		var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+		stag.src = _protocol + 'js.ptengine.com/pts.js';
+		var s = document.getElementsByTagName('script')[0]; 
+		s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+	})();
+	</script>
+<?php
     }
 }
 /*******************add tag process end**********************************/
