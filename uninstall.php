@@ -18,4 +18,6 @@ delete_option( 'key_ptengine_code' );
 delete_option( 'key_ptengine_area' );
 delete_option( 'key_ptengine_dc_init' );
 
+delete_option( 'key_ptengine_nonce_id' );
+
 ?>

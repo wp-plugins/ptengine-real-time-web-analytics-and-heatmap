@@ -32,13 +32,15 @@ add_option('key_ptengine_code', '');
 add_option('key_ptengine_area', '');
 add_option('key_ptengine_dc_init', '1');
 
+add_option('key_ptengine_nonce_id', '0');
+
 /*******************param process start**********************************/
 // after registed or login, set option
 $account = $_GET['account'];
 $pwd = $_GET['pwd'];
 $uid = $_GET['uid'];
 $set_first = $_GET['setFirst'];
-if ($account && $pwd && $uid) {
+if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $account && $pwd && $uid) {
     update_option('key_ptengine_account', $account);
     update_option('key_ptengine_pwd', $pwd);
     update_option('key_ptengine_uid', $uid);
@@ -54,7 +56,7 @@ $site_id = $_GET['siteId'];
 $pgid = $_GET['groupId'];
 $site_name = $_GET['siteName'];
 $timezone = $_GET['timezone'];
-if ($sid && $site_id && $pgid && $site_name && $timezone) {
+if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $sid && $site_id && $pgid && $site_name && $timezone) {
     update_option('key_ptengine_sid', $sid);
     update_option('key_ptengine_site_id', $site_id);
     update_option('key_ptengine_pgid', $pgid);
@@ -106,7 +108,6 @@ if(get_option('key_ptengine_sid')){
     // add ptengine tag
     function add_ptengine_tag() {
         $t_site_id = get_option('key_ptengine_site_id');
-		if(!ereg("^[a-zA-Z0-9]{8}$", $t_site_id)){$t_site_id = '';}
 ?>
     <script type="text/javascript">
     window._pt_sp_2 = [];
@@ -205,6 +206,10 @@ function display_ptengine_report() {
             update_option('key_ptengine_pwd', '');
             $t_pwd = '';
         }
+        // create nonce id
+        $nonce_id = wp_create_nonce($t_account);
+        update_option('key_ptengine_nonce_id', $nonce_id);
+    
         $query_str = $t_api_dc
                 . '&data={'
                     . 'isfirst:' . $t_dc_init . ','
@@ -219,7 +224,7 @@ function display_ptengine_report() {
                         . 'groupId:"' . $t_pgid . '",'
                         . 'token:"' . $t_token . '"},'
                     . 'url:{'
-                        . 'wppAPI:"' . wpp_api_report . '%26flag=api"},';
+                        . 'wppAPI:"' . wpp_api_report . '%26nonce_id='. $nonce_id. '%26flag=api"},';
     	?>
 		<iframe id='ptengine_report_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='1460px'><p>Your browser does not support iframes.</p></iframe>
 		<script type='text/javascript'>
@@ -306,6 +311,10 @@ function display_ptengine_setting() {
         $t_pwd = '';
         $t_site_name = '';
     }
+    
+    $nonce_id = wp_create_nonce($t_site_domain);
+    update_option('key_ptengine_nonce_id', $nonce_id);
+    
     $query_str = $t_api_setting
             . '&data={'
                 . 'status:' . $status . ','
@@ -318,7 +327,7 @@ function display_ptengine_setting() {
                     . 'siteName:"' . $t_site_name . '"},'
                 . 'url:{'
                     . 'domain:"' . $t_site_domain . '",'
-                . 'wppAPI:"' . wpp_api_report . '%26flag=api"},';
+                . 'wppAPI:"'. wpp_api_report. '%26nonce_id='. $nonce_id. '%26flag=api"},';
             ?>
 		<iframe id='ptengine_setting_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='740px'><p>Your browser does not support iframes.</p></iframe>
 		<script type='text/javascript'>
