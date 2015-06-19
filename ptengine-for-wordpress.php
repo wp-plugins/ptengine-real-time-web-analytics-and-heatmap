@@ -99,28 +99,27 @@ function getIP(){
 /*******************add tag process start**********************************/
 // after profile created or profile found
 if(get_option('key_ptengine_sid')){
-    $tag_position = get_option('key_ptengine_tag_position');
-    if ($tag_position == "footer") {
-        add_action('wp_footer', 'add_ptengine_tag');
-    } else {
-        add_action('wp_head', 'add_ptengine_tag');
-    }
+    
+    add_action('wp_head', 'add_ptengine_tag');
+
     // add ptengine tag
     function add_ptengine_tag() {
         $t_site_id = get_option('key_ptengine_site_id');
 ?>
     <script type="text/javascript">
-    window._pt_sp_2 = [];
-	_pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
-	var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	(function() {
-		var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
-		atag.src = _protocol + 'js.ptengine.com/pta.js';
-		var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
-		stag.src = _protocol + 'js.ptengine.com/pts.js';
-		var s = document.getElementsByTagName('script')[0]; 
-		s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
-	})();
+    window.onload = function(){
+        window._pt_sp_2 = [];
+        _pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
+        var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        (function() {
+            var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+            atag.src = _protocol + 'js.ptengine.com/pta.js';
+            var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+            stag.src = _protocol + 'js.ptengine.com/pts.js';
+            var s = document.getElementsByTagName('script')[0]; 
+            s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+        })();
+    }
 	</script>
 <?php
     }
