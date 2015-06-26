@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Ptengine - Real time web analytics and Heatmap
- * Version: 1.0.4
+ * Version: 1.0.3
  * Plugin URI: http://www.ptengine.com/
  * Description: To get started: activate this plugin, go to <a href="admin.php?page=ptengine_setting">option page</a> and (1) sign up (2) create a profile (3) start to see your real time traffic! Go to Ptengine for the full version if you want more conversions.
  * Author: Ptengine
@@ -36,10 +36,10 @@ add_option('key_ptengine_nonce_id', '0');
 
 /*******************param process start**********************************/
 // after registed or login, set option
-$account = isset($_GET['account']);
-$pwd = isset($_GET['pwd']);
-$uid = isset($_GET['uid']);
-$set_first = isset($_GET['setFirst']);
+$account = $_GET['account'];
+$pwd = $_GET['pwd'];
+$uid = $_GET['uid'];
+$set_first = $_GET['setFirst'];
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $account && $pwd && $uid) {
     update_option('key_ptengine_account', $account);
     update_option('key_ptengine_pwd', $pwd);
@@ -51,11 +51,11 @@ if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_n
 }
 
 // after profile created, set option
-$sid = isset($_GET['sid']);
-$site_id = isset($_GET['siteId']);
-$pgid = isset($_GET['groupId']);
-$site_name = isset($_GET['siteName']);
-$timezone = isset($_GET['timezone']);
+$sid = $_GET['sid'];
+$site_id = $_GET['siteId'];
+$pgid = $_GET['groupId'];
+$site_name = $_GET['siteName'];
+$timezone = $_GET['timezone'];
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $sid && $site_id && $pgid && $site_name && $timezone) {
     update_option('key_ptengine_sid', $sid);
     update_option('key_ptengine_site_id', $site_id);
@@ -70,29 +70,29 @@ register_activation_hook( __FILE__, 'ptengine_plugin_install');
 register_deactivation_hook( __FILE__, 'ptengine_plugin_remove' );  
 
 function ptengine_plugin_install(){
-	$t_uid = get_option('key_ptengine_uid');
-	if (!$t_uid) {
-		$t_area = ptengine_getArea('a='. $_SERVER['HTTP_ACCEPT_LANGUAGE']. '&b='. getIP());
-		if ($t_area) {
-			update_option('key_ptengine_area', $t_area);
-		}
-	}
+    $t_uid = get_option('key_ptengine_uid');
+    if (!$t_uid) {
+        $t_area = ptengine_getArea('a='. $_SERVER['HTTP_ACCEPT_LANGUAGE']. '&b='. getIP());
+        if ($t_area) {
+            update_option('key_ptengine_area', $t_area);
+        }
+    }
 }
 
 function ptengine_plugin_remove(){
     ptengine_logout();
 }
 function getIP(){
-	if(!empty($_SERVER["HTTP_CLIENT_IP"])){
-  		return $_SERVER["HTTP_CLIENT_IP"];
-	}
-	if(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
-  		return $_SERVER["HTTP_X_FORWARDED_FOR"];
-	}
-	if(!empty($_SERVER["REMOTE_ADDR"])){
-  		return $_SERVER["REMOTE_ADDR"];
-  	}
-  	return '';
+    if(!empty($_SERVER["HTTP_CLIENT_IP"])){
+        return $_SERVER["HTTP_CLIENT_IP"];
+    }
+    if(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){
+        return $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
+    if(!empty($_SERVER["REMOTE_ADDR"])){
+        return $_SERVER["REMOTE_ADDR"];
+    }
+    return '';
 }
 /*******************plugin start/stop process end**********************************/
 
@@ -107,7 +107,7 @@ if(get_option('key_ptengine_sid')){
         $t_site_id = get_option('key_ptengine_site_id');
 ?>
     <script type="text/javascript">
-        (function(){
+    (function(){
             var t = function(){
                 window._pt_sp_2 = [];
                 _pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
@@ -129,7 +129,7 @@ if(get_option('key_ptengine_sid')){
                 t();
             }
         })();
-	</script>
+    </script>
 <?php
     }
 }
@@ -187,7 +187,7 @@ function ptengine_admin_menu() {
 
 // show dc page
 function display_ptengine_report() {
-    $t_flag = isset($_GET['flag']);
+    $t_flag = $_GET['flag'];
     if ($t_flag == 'api'){
         return;
     }
@@ -205,7 +205,7 @@ function display_ptengine_report() {
         // if sid exist, try login, get area api
         $t_area = ptengine_getArea('uid='. $t_uid);
         if (!$t_area){
-        	return 'error';
+            return 'error';
         }
         $t_token = ptengine_login($t_area);
         $t_api_dc = $t_area. '/interface/wpPlugin.pt?page=dc';
@@ -233,46 +233,46 @@ function display_ptengine_report() {
                         . 'token:"' . $t_token . '"},'
                     . 'url:{'
                         . 'wppAPI:"' . wpp_api_report . '%26nonce_id='. $nonce_id. '%26flag=api"},';
-    	?>
-		<iframe id='ptengine_report_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='1460px'><p>Your browser does not support iframes.</p></iframe>
-		<script type='text/javascript'>
-			var vh = 600;
-    		vh = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
-    		document.getElementById("ptengine_report_frame").src = '<?php echo $query_str; ?>' + "vh:" + vh + "}";	
-    	</script>
-		<?php
-		echo "<script type='text/javascript'>
-			(function(){
-				if (document.readyState == 'complete') {
-					//ptFun_changeIframeSize();
-				} else {
-					var oldWindowHandler = window.onload;
-					window.onload = function() {
-						if (!!oldWindowHandler) {
-							oldWindowHandler();
-						}
-						//ptFun_changeIframeSize();
-					};
-				};
-			})()
+        ?>
+        <iframe id='ptengine_report_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='1460px'><p>Your browser does not support iframes.</p></iframe>
+        <script type='text/javascript'>
+            var vh = 600;
+            vh = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
+            document.getElementById("ptengine_report_frame").src = '<?php echo $query_str; ?>' + "vh:" + vh + "}";  
+        </script>
+        <?php
+        echo "<script type='text/javascript'>
+            (function(){
+                if (document.readyState == 'complete') {
+                    //ptFun_changeIframeSize();
+                } else {
+                    var oldWindowHandler = window.onload;
+                    window.onload = function() {
+                        if (!!oldWindowHandler) {
+                            oldWindowHandler();
+                        }
+                        //ptFun_changeIframeSize();
+                    };
+                };
+            })()
 
-			//function ptFun_changeIframeSize(){
-				//var minW = Math.max(document.getElementById('ptengine_report_frame').parentNode.offsetWidth, 840);
-				//var minH = Math.max(document.getElementById('ptengine_report_frame').parentNode.offsetHeight, 1390);
-				//document.getElementById('ptengine_report_frame').style.width = minW+'px';
-				//document.getElementById('ptengine_report_frame').style.height = minH+'px';
-			//}
-		</script>";
-		return;
+            //function ptFun_changeIframeSize(){
+                //var minW = Math.max(document.getElementById('ptengine_report_frame').parentNode.offsetWidth, 840);
+                //var minH = Math.max(document.getElementById('ptengine_report_frame').parentNode.offsetHeight, 1390);
+                //document.getElementById('ptengine_report_frame').style.width = minW+'px';
+                //document.getElementById('ptengine_report_frame').style.height = minH+'px';
+            //}
+        </script>";
+        return;
     } else {
         // if profile do not exist, turn to Setting page
-		echo '<script type="text/javascript">window.location.href ="'. wpp_api_setting. '";</script>';
+        echo '<script type="text/javascript">window.location.href ="'. wpp_api_setting. '";</script>';
     }
 }
 
 // show setting page
 function display_ptengine_setting() {
-    $t_flag = isset($_GET['flag']);
+    $t_flag = $_GET['flag'];
     if ($t_flag == 'api'){
         return;
     }
@@ -286,14 +286,14 @@ function display_ptengine_setting() {
     $t_site_domain = get_option('home');
     
     if($t_uid){
-    	// if account created,but profile do not exist)
-    	$t_area = ptengine_getArea('uid='. $t_uid);
+        // if account created,but profile do not exist)
+        $t_area = ptengine_getArea('uid='. $t_uid);
     } else {
-    	// if account do not exist
-    	$t_area = get_option('key_ptengine_area');
-    	if (!$t_area) {
-    		$t_area = ptengine_getArea('a='. $_SERVER['HTTP_ACCEPT_LANGUAGE']. '&b='. getIP());
-    	}
+        // if account do not exist
+        $t_area = get_option('key_ptengine_area');
+        if (!$t_area) {
+            $t_area = ptengine_getArea('a='. $_SERVER['HTTP_ACCEPT_LANGUAGE']. '&b='. getIP());
+        }
     }
     if (!$t_area){
         return 'error';
@@ -337,35 +337,35 @@ function display_ptengine_setting() {
                     . 'domain:"' . $t_site_domain . '",'
                 . 'wppAPI:"'. wpp_api_report. '%26nonce_id='. $nonce_id. '%26flag=api"},';
             ?>
-		<iframe id='ptengine_setting_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='740px'><p>Your browser does not support iframes.</p></iframe>
-		<script type='text/javascript'>
-			var vh = 600;
-    		vh = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
-    		document.getElementById("ptengine_setting_frame").src = '<?php echo $query_str; ?>' + "vh:" + vh + "}";	
-    	</script>
-		<?php
-		echo "<script type='text/javascript'>
-			(function(){
-				if (document.readyState == 'complete') {
-					ptFun_changeIframeSize();
-				} else {
-					var oldWindowHandler = window.onload;
-					window.onload = function() {
-						if (!!oldWindowHandler) {
-							oldWindowHandler();
-						}
-						ptFun_changeIframeSize();
-					};
-				};
-			})()
+        <iframe id='ptengine_setting_frame' frameborder='no' border='0'  allowtransparency='true'  style='border:none;' src='' width='100%' height='740px'><p>Your browser does not support iframes.</p></iframe>
+        <script type='text/javascript'>
+            var vh = 600;
+            vh = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
+            document.getElementById("ptengine_setting_frame").src = '<?php echo $query_str; ?>' + "vh:" + vh + "}"; 
+        </script>
+        <?php
+        echo "<script type='text/javascript'>
+            (function(){
+                if (document.readyState == 'complete') {
+                    ptFun_changeIframeSize();
+                } else {
+                    var oldWindowHandler = window.onload;
+                    window.onload = function() {
+                        if (!!oldWindowHandler) {
+                            oldWindowHandler();
+                        }
+                        ptFun_changeIframeSize();
+                    };
+                };
+            })()
 
-			function ptFun_changeIframeSize(){
-				var minW = Math.max(document.getElementById('ptengine_setting_frame').parentNode.offsetWidth, 840);
-				var minH = Math.max(document.getElementById('ptengine_setting_frame').parentNode.offsetHeight, 740);
-				//document.getElementById('ptengine_setting_frame').style.width = minW+'px';
-				document.getElementById('ptengine_setting_frame').style.height = minH+'px';
-			}
-		</script>";
+            function ptFun_changeIframeSize(){
+                var minW = Math.max(document.getElementById('ptengine_setting_frame').parentNode.offsetWidth, 840);
+                var minH = Math.max(document.getElementById('ptengine_setting_frame').parentNode.offsetHeight, 740);
+                //document.getElementById('ptengine_setting_frame').style.width = minW+'px';
+                document.getElementById('ptengine_setting_frame').style.height = minH+'px';
+            }
+        </script>";
 }
 // Create admin menu
 add_action('admin_menu', 'ptengine_admin_menu');
