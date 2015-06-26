@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Ptengine - Real time web analytics and Heatmap
- * Version: 1.0.3
+ * Version: 1.0.4
  * Plugin URI: http://www.ptengine.com/
  * Description: To get started: activate this plugin, go to <a href="admin.php?page=ptengine_setting">option page</a> and (1) sign up (2) create a profile (3) start to see your real time traffic! Go to Ptengine for the full version if you want more conversions.
  * Author: Ptengine
@@ -36,10 +36,10 @@ add_option('key_ptengine_nonce_id', '0');
 
 /*******************param process start**********************************/
 // after registed or login, set option
-$account = $_GET['account'];
-$pwd = $_GET['pwd'];
-$uid = $_GET['uid'];
-$set_first = $_GET['setFirst'];
+$account = isset($_GET['account']);
+$pwd = isset($_GET['pwd']);
+$uid = isset($_GET['uid']);
+$set_first = isset($_GET['setFirst']);
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $account && $pwd && $uid) {
     update_option('key_ptengine_account', $account);
     update_option('key_ptengine_pwd', $pwd);
@@ -51,11 +51,11 @@ if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_n
 }
 
 // after profile created, set option
-$sid = $_GET['sid'];
-$site_id = $_GET['siteId'];
-$pgid = $_GET['groupId'];
-$site_name = $_GET['siteName'];
-$timezone = $_GET['timezone'];
+$sid = isset($_GET['sid']);
+$site_id = isset($_GET['siteId']);
+$pgid = isset($_GET['groupId']);
+$site_name = isset($_GET['siteName']);
+$timezone = isset($_GET['timezone']);
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $sid && $site_id && $pgid && $site_name && $timezone) {
     update_option('key_ptengine_sid', $sid);
     update_option('key_ptengine_site_id', $site_id);
@@ -107,19 +107,28 @@ if(get_option('key_ptengine_sid')){
         $t_site_id = get_option('key_ptengine_site_id');
 ?>
     <script type="text/javascript">
-    window.onload = function(){
-        window._pt_sp_2 = [];
-        _pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
-        var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-        (function() {
-            var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
-            atag.src = _protocol + 'js.ptengine.com/pta.js';
-            var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
-            stag.src = _protocol + 'js.ptengine.com/pts.js';
-            var s = document.getElementsByTagName('script')[0]; 
-            s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+        (function(){
+            var t = function(){
+                window._pt_sp_2 = [];
+                _pt_sp_2.push('setAccount,<?php echo $t_site_id; ?>');
+                var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                (function() {
+                    var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+                    atag.src = _protocol + 'js.ptengine.com/pta.js';
+                    var stag = document.createElement('script'); stag.type = 'text/javascript'; stag.async = true;
+                    stag.src = _protocol + 'js.ptengine.com/pts.js';
+                    var s = document.getElementsByTagName('script')[0]; 
+                    s.parentNode.insertBefore(atag, s);s.parentNode.insertBefore(stag, s);
+                })();
+            }
+            if(window.attachEvent){
+                window.attachEvent("onload",t);
+            }else if(window.addEventListener){
+                window.addEventListener("load",t,false);
+            }else{
+                t();
+            }
         })();
-    }
 	</script>
 <?php
     }
@@ -178,7 +187,7 @@ function ptengine_admin_menu() {
 
 // show dc page
 function display_ptengine_report() {
-    $t_flag = $_GET['flag'];
+    $t_flag = isset($_GET['flag']);
     if ($t_flag == 'api'){
         return;
     }
@@ -263,7 +272,7 @@ function display_ptengine_report() {
 
 // show setting page
 function display_ptengine_setting() {
-    $t_flag = $_GET['flag'];
+    $t_flag = isset($_GET['flag']);
     if ($t_flag == 'api'){
         return;
     }
