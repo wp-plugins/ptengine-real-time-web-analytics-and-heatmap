@@ -4,7 +4,7 @@ Ptengine
 Tags: plugin, web analytics, heatmap, widget, realtime, tracking, page group, funnel, conversion
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Ptengine's heat mapping technology and traffic metrics show you exactly where every visitor is clicking, scrolling and buying. Or not buying. 
@@ -113,6 +113,9 @@ WordPress管理画面「プラグイン」より、Ptengineを「有効」にし
 
 
 == Changelog ==
+= 1.0.6 =
+* Fixes some issues.
+
 = 1.0.5 =
 * Fixes some issues.
 
@@ -133,7 +136,7 @@ WordPress管理画面「プラグイン」より、Ptengineを「有効」にし
 
 == Upgrade Notice ==
 
-= 1.0.5 =
+= 1.0.6 =
 Fixes some issues.
 
 

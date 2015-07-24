@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Ptengine - Real time web analytics and Heatmap
- * Version: 1.0.5
+ * Version: 1.0.6
  * Plugin URI: http://www.ptengine.com/
  * Description: To get started: activate this plugin, go to <a href="admin.php?page=ptengine_setting">option page</a> and (1) sign up (2) create a profile (3) start to see your real time traffic! Go to Ptengine for the full version if you want more conversions.
  * Author: Ptengine
@@ -36,10 +36,10 @@ add_option('key_ptengine_nonce_id', '0');
 
 /*******************param process start**********************************/
 // after registed or login, set option
-$account = $_GET['account'];
-$pwd = $_GET['pwd'];
-$uid = $_GET['uid'];
-$set_first = $_GET['setFirst'];
+$account = isset($_GET['account']) ? $_GET['account'] : "";
+$pwd = isset($_GET['pwd']) ? $_GET['pwd'] : "";
+$uid = isset($_GET['uid']) ? $_GET['uid'] : "";
+$set_first = isset($_GET['setFirst']) ? $_GET['setFirst'] : "";
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $account && $pwd && $uid) {
     update_option('key_ptengine_account', $account);
     update_option('key_ptengine_pwd', $pwd);
@@ -51,11 +51,11 @@ if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_n
 }
 
 // after profile created, set option
-$sid = $_GET['sid'];
-$site_id = $_GET['siteId'];
-$pgid = $_GET['groupId'];
-$site_name = $_GET['siteName'];
-$timezone = $_GET['timezone'];
+$sid = isset($_GET['sid']) ? $_GET['sid'] : "";
+$site_id = isset($_GET['siteId']) ? $_GET['siteId'] : "";
+$pgid = isset($_GET['groupId']) ? $_GET['groupId'] : "";
+$site_name = isset($_GET['siteName']) ? $_GET['siteName'] : "";
+$timezone = isset($_GET['timezone']) ? $_GET['timezone'] : "";
 if (isset($_GET["nonce_id"]) && ($_GET["nonce_id"] == get_option('key_ptengine_nonce_id')) && $sid && $site_id && $pgid && $site_name && $timezone) {
     update_option('key_ptengine_sid', $sid);
     update_option('key_ptengine_site_id', $site_id);
